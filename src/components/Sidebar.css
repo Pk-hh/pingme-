@@ -1,0 +1,274 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    flex: 0.30;
+    /* Desktop standard ~30-35% */
+    border-right: 1px solid var(--border-color);
+    min-width: 340px;
+    /* Slightly wider min */
+    max-width: 450px;
+    /* Prevent it getting too huge */
+    height: 100%;
+    background-color: var(--bg-panel);
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 16px;
+    background-color: var(--header-bg);
+    align-items: center;
+    border-right: 1px solid var(--border-color);
+    height: 59px;
+    /* Standard toolbar height */
+    box-sizing: border-box;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 15px;
+    /* Better spacing control */
+    min-width: unset;
+    /* Remove arbitrary min-width */
+}
+
+.header-actions .MuiSvgIcon-root {
+    color: var(--text-secondary);
+    font-size: 24px !important;
+    cursor: pointer;
+}
+
+/* Tabs: My Status / Chats */
+.sidebar-tabs {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    /* Cleaner to have no bg here in modern tweaks */
+    padding: 8px 16px;
+    /* We can style this better later, basic for now */
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-tab {
+    padding: 5px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 500;
+    margin-right: 5px;
+    transition: background-color 0.2s;
+}
+
+.sidebar-tab:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.sidebar-tab.active {
+    background-color: rgba(0, 168, 132, 0.1);
+    color: var(--secondary-green);
+}
+
+/* Search */
+.search-container {
+    display: flex;
+    align-items: center;
+    background-color: var(--bg-panel);
+    height: 49px;
+    padding: 0 12px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #f0f2f5;
+    width: 100%;
+    height: 35px;
+    border-radius: 8px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+[data-theme='dark'] .search-bar {
+    background-color: #202c33;
+}
+
+.search-bar input {
+    border: none;
+    margin-left: 20px;
+    outline: none;
+    flex: 1;
+    background: transparent;
+    color: var(--text-primary);
+    font-size: 14px;
+}
+
+.search-bar .MuiSvgIcon-root {
+    color: var(--text-secondary);
+    font-size: 20px !important;
+}
+
+/* Lists */
+.chats-list,
+.status-list {
+    flex: 1;
+    background-color: field;
+    /* White default */
+    background-color: white;
+    overflow-y: auto;
+}
+
+[data-theme='dark'] .chats-list,
+[data-theme='dark'] .status-list {
+    background-color: var(--bg-panel);
+}
+
+/* Chat Item */
+.chat-item {
+    display: flex;
+    position: relative;
+    padding: 0 15px;
+    cursor: pointer;
+    height: 72px;
+    /* Fixed standard height */
+    align-items: center;
+    border-bottom: 1px solid #f5f6f6;
+    background-color: white;
+}
+
+[data-theme='dark'] .chat-item {
+    background-color: var(--bg-panel);
+    border-bottom-color: var(--border-color);
+}
+
+.chat-item:hover {
+    background-color: transparent;
+    /* Disabled per user request */
+}
+
+[data-theme='dark'] .chat-item:hover {
+    background-color: transparent;
+}
+
+/* Active State */
+.chat-item.active {
+    background-color: #f0f2f5;
+}
+
+[data-theme='dark'] .chat-item.active {
+    background-color: #2a3942;
+}
+
+/* Chat Info Typography */
+.chat-info {
+    margin-left: 15px;
+    flex: 1;
+    overflow: hidden;
+    padding-right: 10px;
+}
+
+.chat-title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3px;
+    align-items: center;
+}
+
+.chat-title h3 {
+    font-size: 16px;
+    margin: 0;
+    font-weight: 400;
+    color: var(--text-primary);
+    /* Multi-line clamp: wrap to next line, then dots if too big */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    white-space: normal;
+    /* Allow wrapping */
+    line-height: 1.2;
+}
+
+.chat-time {
+    font-size: 12px;
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+.chat-preview p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 20px;
+}
+
+/* Status Item Specifics */
+.status-item {
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    height: 72px;
+    cursor: pointer;
+    background-color: white;
+}
+
+[data-theme='dark'] .status-item {
+    background-color: var(--bg-panel);
+}
+
+.status-avatar-container {
+    position: relative;
+    width: 44px;
+    /* Slightly larger */
+    height: 44px;
+}
+
+.status-info {
+    margin-left: 15px;
+}
+
+.status-info h3 {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.status-info p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin: 3px 0 0;
+}
+
+/* --- Mobile Specific Overrides --- */
+@media (max-width: 760px) {
+    .sidebar {
+        flex: 1;
+        min-width: 100vw;
+        max-width: 100vw;
+        border-right: none;
+    }
+
+    .sidebar-header {
+        padding: 12px 16px;
+        /* Better padding */
+    }
+
+    .chat-item {
+        padding: 0 16px;
+        /* Restore padding */
+    }
+
+    /* Icons adjustment */
+    .sidebar-header .MuiSvgIcon-root {
+        padding: 5px;
+        font-size: 28px !important;
+        /* Larger for mobile */
+    }
+}

@@ -1,0 +1,128 @@
+.profile-drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 350px;
+    /* Width of the drawer */
+    height: 100vh;
+    background-color: #f0f2f5;
+    z-index: 1000;
+    transform: translateX(-100%);
+    /* Hidden by default */
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-drawer.open {
+    transform: translateX(0);
+    /* Slide in */
+}
+
+.profile-drawer-header {
+    background-color: #008080;
+    /* Ping Teal */
+    color: white;
+    padding: 20px;
+    padding-top: 50px;
+    display: flex;
+    align-items: center;
+    font-size: 19px;
+    font-weight: 500;
+}
+
+.profile-drawer-header>.MuiSvgIcon-root {
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.profile-drawer-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px 0;
+    background-color: #f0f2f5;
+}
+
+.profile-picture-section {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    margin-bottom: 20px;
+}
+
+.profile-picture-section .MuiAvatar-root {
+    width: 200px;
+    height: 200px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.profile-picture-section .MuiAvatar-root:hover {
+    opacity: 0.8;
+}
+
+.profile-section {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.profile-section label {
+    display: block;
+    color: #008080;
+    font-size: 14px;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.profile-section-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.profile-input {
+    border: none;
+    outline: none;
+    font-size: 17px;
+    width: 90%;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.2s;
+    background: transparent;
+}
+
+.profile-input:focus {
+    border-bottom: 2px solid #008080;
+}
+
+.profile-info-text {
+    font-size: 14px;
+    color: gray;
+    margin-top: 10px;
+    padding: 0 20px;
+}
+
+.avatar-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+    cursor: pointer;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.profile-picture-section:hover .avatar-overlay {
+    opacity: 1;
+    pointer-events: auto;
+}

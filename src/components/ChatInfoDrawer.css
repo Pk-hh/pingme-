@@ -1,0 +1,135 @@
+.chat-info-drawer {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    /* Hidden by default */
+    width: 300px;
+    /* Standard sidebar width */
+    height: 100vh;
+    background-color: #f0f2f5;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    transition: right 0.3s ease-in-out;
+    border-left: 1px solid #d1d7db;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.05);
+}
+
+.chat-info-drawer.open {
+    right: 0;
+}
+
+/* Header */
+.chat-info-header {
+    height: 60px;
+    background-color: #f0f2f5;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    border-bottom: 1px solid #e9edef;
+    color: #3b4a54;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.chat-info-header svg {
+    margin-right: 15px;
+    color: #54656f;
+    cursor: pointer;
+}
+
+/* Body Content */
+.chat-info-body {
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: 20px;
+}
+
+/* Profile Card */
+.chat-info-card {
+    background-color: white;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    margin-bottom: 10px;
+}
+
+.chat-info-avatar {
+    width: 200px !important;
+    height: 200px !important;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.chat-info-name {
+    font-size: 22px;
+    color: #111b21;
+    font-weight: 400;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.chat-info-phone {
+    font-size: 14px;
+    color: #667781;
+}
+
+/* Generic Section (About, Media, Options) */
+.chat-info-section {
+    background-color: white;
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.section-title {
+    font-size: 14px;
+    color: #667781;
+    margin-bottom: 10px;
+}
+
+.section-content {
+    font-size: 16px;
+    color: #111b21;
+}
+
+/* Action Items (Block, Exit) */
+.action-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: white;
+    margin-bottom: 1px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    color: #ea0038;
+    /* Red for danger actions */
+    font-size: 16px;
+}
+
+.action-item svg {
+    margin-right: 20px;
+    color: #ea0038;
+}
+
+.action-item:hover {
+    background-color: #f5f6f6;
+}
+
+/* Added Styles for Participants List */
+.participants-list {
+    max-height: 200px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
+
+.participant-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f2f5;
+    font-size: 14px;
+    color: #111b21;
+}

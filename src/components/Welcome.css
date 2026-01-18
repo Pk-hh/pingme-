@@ -1,0 +1,57 @@
+.welcome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    background-color: var(--bg-panel);
+    color: var(--text-primary);
+    position: relative;
+    border-bottom: 6px solid var(--secondary-green);
+    /* The accent strip */
+    border-top: none;
+    /* Just checking */
+}
+
+/* Remove image styling conflict if any */
+.welcome img {
+    margin-bottom: 28px !important;
+    height: auto !important;
+    /* Let jsx control max height or class */
+    max-height: 250px;
+    opacity: 1;
+    /* Clear image */
+}
+
+.welcome h2 {
+    font-size: 32px;
+    font-weight: 300;
+    margin-top: 24px;
+    margin-bottom: 10px;
+    color: #41525d;
+}
+
+.welcome p {
+    font-size: 14px;
+    color: #667781;
+    line-height: 20px;
+    max-width: 560px;
+    /* Readability width */
+    margin: 0;
+}
+
+.welcome-footer {
+    position: absolute;
+    bottom: 40px;
+    font-size: 13px;
+    color: #8696a0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+[data-theme='dark'] .welcome h2 {
+    color: #e9edef;
+}

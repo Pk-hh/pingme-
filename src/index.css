@@ -1,0 +1,110 @@
+:root {
+  --app-background: #d1d7db;
+  --app-background-strip: #008080;
+  --sidebar-bg: #ffffff;
+  --sidebar-header: #f0f2f5;
+  --chat-bg: #efeae2;
+  --chat-bg-image: url("https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png");
+  --incoming-msg: #ffffff;
+  --outgoing-msg: #d9fdd3;
+  --primary-green: #008080;
+  --text-primary: #111b21;
+  --text-secondary: #54656f;
+  --icon-color: #54656f;
+  --border-color: #e9edef;
+  --search-bg: #f0f2f5;
+  --input-bg: #ffffff;
+  --shadow-1: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --system-font: 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+[data-theme='dark'] {
+  --app-background: #0c1317;
+  --app-background-strip: #0c1317;
+  /* Often same as bg in dark mode or darker */
+  --sidebar-bg: #111b21;
+  --sidebar-header: #202c33;
+  --chat-bg: #0b141a;
+  --chat-bg-image: url("https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png");
+  /* Could filter to invert */
+  --incoming-msg: #202c33;
+  --outgoing-msg: #005c4b;
+  --primary-green: #00a884;
+  --text-primary: #e9edef;
+  --text-secondary: #8696a0;
+  --icon-color: #aebac1;
+  --border-color: #2a3942;
+  --search-bg: #202c33;
+  --input-bg: #2a3942;
+  --shadow-1: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--system-font);
+  background-color: var(--app-background);
+  color: var(--text-primary);
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 127px;
+  background-color: var(--app-background-strip);
+  z-index: -1;
+}
+
+#root {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 19px;
+}
+
+/* Scrollbar styling */
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 5px !important;
+  height: 5px !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(11, 20, 26, 0.2);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  /* Cleaner track */
+}
+
+@media (max-width: 760px) {
+  body {
+    background-color: white;
+    /* No gray background on mobile */
+  }
+
+  body::before {
+    display: none;
+    /* No green strip on mobile */
+  }
+
+  #root {
+    padding: 0;
+    /* Full screen, no padding */
+  }
+}

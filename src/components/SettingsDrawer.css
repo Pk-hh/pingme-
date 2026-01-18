@@ -1,0 +1,147 @@
+.settings-drawer {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    /* Slides from LEFT by default for Settings (or we can do overwrite sidebar) */
+    /* Let's make it slide from LEFT effectively replacing Sidebar */
+    left: 0;
+    transform: translateX(-100%);
+    width: 100%;
+    /* Takes full sidebar width */
+    height: 100%;
+    background-color: #f0f2f5;
+    z-index: 1200;
+    /* Higher than sidebar content */
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease-in-out;
+}
+
+.settings-drawer.open {
+    transform: translateX(0);
+}
+
+/* Header */
+.settings-header {
+    height: 108px;
+    background-color: #008069;
+    color: white;
+    display: flex;
+    align-items: flex-end;
+    padding: 0 20px 10px 20px;
+    font-size: 19px;
+    font-weight: 500;
+}
+
+.settings-header-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.settings-header svg {
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+/* Body */
+.settings-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px 0;
+}
+
+/* Profile Section Small */
+.settings-profile-card {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: white;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    margin-bottom: 20px;
+}
+
+.settings-avatar {
+    width: 80px !important;
+    height: 80px !important;
+    margin-right: 20px;
+}
+
+.settings-user-info h3 {
+    margin: 0;
+    font-size: 19px;
+    font-weight: 400;
+    color: #111b21;
+}
+
+.settings-user-info p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #667781;
+}
+
+/* List Items */
+.settings-item {
+    display: flex;
+    align-items: center;
+    padding: 20px 20px;
+    background-color: white;
+    cursor: pointer;
+    border-bottom: 1px solid #f0f2f5;
+    transition: background-color 0.2s;
+}
+
+.settings-item:hover {
+    background-color: #f5f6f6;
+}
+
+.settings-item svg {
+    color: #54656f;
+    margin-right: 25px;
+    font-size: 22px;
+}
+
+.settings-item-text h4 {
+    margin: 0;
+    font-size: 16px;
+    color: #111b21;
+    font-weight: 400;
+}
+
+.settings-item-text p {
+    margin: 3px 0 0;
+    font-size: 14px;
+    color: #667781;
+}
+
+/* Wallpaper Section */
+.wallpaper-section {
+    padding: 20px;
+}
+
+.color-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.color-swatch {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.color-swatch.selected {
+    border-color: #008069;
+    transform: scale(0.95);
+}
+
+.default-doodle {
+    background-image: url("https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png");
+    background-size: cover;
+    background-color: #efe7dd;
+}

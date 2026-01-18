@@ -1,0 +1,217 @@
+:root {
+  /* WhatsApp Colors */
+  --primary-green: #00a884;
+  --secondary-green: #008069;
+  --bg-default: #efeae2;
+  /* Chat BG */
+  --bg-app: #d1d7db;
+  /* Desktop App BG */
+  --bg-panel: #f0f2f5;
+  /* Sidebar/Light BG */
+  --header-bg: #f0f2f5;
+  --incoming-msg: #ffffff;
+  --outgoing-msg: #d9fdd3;
+  --text-primary: #111b21;
+  --text-secondary: #54656f;
+  --border-color: #d1d7db;
+  /* or #e9edef */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 2px 5px rgba(0, 0, 0, 0.1);
+  --app-height: 100vh;
+}
+
+[data-theme='dark'] {
+  --primary-green: #00a884;
+  --secondary-green: #00a884;
+  --bg-default: #0b141a;
+  --bg-app: #0b141a;
+  /* Dark App BG */
+  --bg-panel: #111b21;
+  --header-bg: #202c33;
+  --incoming-msg: #202c33;
+  --outgoing-msg: #005c4b;
+  --text-primary: #e9edef;
+  --text-secondary: #8696a0;
+  --border-color: #2f3b43;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  overflow: hidden;
+  background-color: var(--bg-app);
+  /* Outer background */
+}
+
+/* Background strip removed per user request */
+
+#root {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-body {
+  display: flex;
+  background-color: var(--bg-default);
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  box-shadow: none;
+  position: relative;
+  top: 0;
+}
+
+/* Desktop: Add margin/centering if screen is large enough */
+/* Desktop sizing removed - Always full screen */
+
+/* Responsive Mobile */
+@media (max-width: 900px) {
+  .app-body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    top: 0;
+    box-shadow: none;
+  }
+
+  body::after {
+    display: none;
+    /* No green strip on mobile */
+  }
+}
+
+
+.welcome-container {
+  flex: 0.70;
+  /* Slightly wider */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-color: var(--bg-panel);
+  border-bottom: 6px solid var(--secondary-green);
+  flex-direction: column;
+  padding: 40px;
+  text-align: center;
+}
+
+/* --- Mobile specific toggle logic --- */
+@media (max-width: 760px) {
+  .app-body {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  /* When Chat is NOT selected: Show Sidebar, Hide Chat */
+  .app-body:not(.chat-selected) .sidebar {
+    display: flex;
+    width: 100%;
+    flex: 1;
+  }
+
+  .app-body:not(.chat-selected) .chat,
+  .app-body:not(.chat-selected) .welcome-container {
+    display: none;
+  }
+
+  /* When Chat IS selected: Hide Sidebar, Show Chat */
+  .app-body.chat-selected .sidebar {
+    display: none;
+  }
+
+  .app-body.chat-selected .chat {
+    display: flex;
+    width: 100%;
+    flex: 1;
+  }
+
+  /* Hide welcome screen on mobile entirely as we start on list */
+  .welcome-container {
+    display: none;
+  }
+}
+
+/* --- Loading Screen Styles --- */
+.loading-container {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--bg-panel);
+  position: relative;
+  z-index: 9999;
+}
+
+.loading-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loading-logo {
+  object-fit: contain;
+  height: 80px;
+  margin-bottom: 40px;
+  /* animation: pulse 2s infinite; Removed pulse, simpler logo */
+}
+
+.loading-progress {
+  width: 300px;
+  height: 3px;
+  background-color: var(--border-color);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+  margin-top: 20px;
+}
+
+.loading-bar {
+  height: 100%;
+  background-color: var(--primary-green);
+  width: 0%;
+  animation: loadProgress 1.5s ease-in-out infinite;
+}
+
+.loading-text {
+  margin-top: 30px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.from-branding {
+  position: absolute;
+  bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #8696a0;
+  font-size: 12px;
+}
+
+@keyframes loadProgress {
+  0% {
+    width: 0%;
+    left: 0;
+  }
+
+  50% {
+    width: 40%;
+    left: 30%;
+  }
+
+  100% {
+    width: 0%;
+    left: 100%;
+  }
+}

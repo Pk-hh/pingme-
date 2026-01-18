@@ -1,0 +1,137 @@
+.call-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #0b141a;
+    /* Dark background */
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.call-header {
+    position: absolute;
+    top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2005;
+}
+
+.call-header h2 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.call-header p {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+}
+
+.call-avatar-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin-bottom: 50px;
+    z-index: 2005;
+}
+
+.call-avatar {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 50%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Pulsing effect for Audio Call */
+.pulse-ring {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    animation: pulse-ring 2s infinite;
+    z-index: -1;
+}
+
+.pulse-ring:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+@keyframes pulse-ring {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(2.5);
+        opacity: 0;
+    }
+}
+
+/* Video specific */
+.video-stream {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 2001;
+    transform: scaleX(-1);
+    /* Mirror effect */
+}
+
+/* Controls */
+.call-controls {
+    position: absolute;
+    bottom: 50px;
+    display: flex;
+    gap: 20px;
+    z-index: 2010;
+    background-color: rgba(20, 30, 35, 0.8);
+    padding: 15px 30px;
+    border-radius: 40px;
+    backdrop-filter: blur(5px);
+}
+
+.control-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border: none;
+    color: white;
+}
+
+.control-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.control-btn.active {
+    background-color: white;
+    color: black;
+}
+
+.control-btn.end-call {
+    background-color: #ea0038;
+}
+
+.control-btn.end-call:hover {
+    background-color: #ff0040;
+}

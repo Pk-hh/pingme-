@@ -1,0 +1,22 @@
+.chat-options-btn {
+    display: none;
+    /* Hidden by default */
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    /* Or a slight gradient if needed */
+}
+
+.chat-item:hover .chat-options-btn {
+    display: block;
+    /* Show on hover */
+}
+
+/* Make sure text doesn't overlap/underlap weirdly */
+.chat-item:hover .chat-time {
+    display: none;
+    /* Hide time on hover to make space? Optional. Typical WA behavior: arrow replaces time/info */
+    /* Actually WA Web shows arrow to the right of time, or slightly displacing it. Let's keep it simple overlay for now or simple positioning. */
+}
